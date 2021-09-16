@@ -48,10 +48,13 @@ def login():
     logging.debug("Password page passed ✔✔")
 
     # "Stay signed in" page
-    time.sleep(5)
+    time.sleep(3)
     element = driver.find_element_by_id("idSIButton9")
     element.click()
     logging.debug("Stay signed in - YES ✔")
+
+def joinClass():
+    driver.get("https://teams.microsoft.com/_#/calendarv2")
 
 
 if __name__ == "__main__":
@@ -59,8 +62,10 @@ if __name__ == "__main__":
     logging.debug(f"Attempting login with creds: {email} - {password}")
     initDriver()
     login()
-    time.sleep(5)
     logging.debug("Log in successful")
     time.sleep(10)
-    # logging.debug("Quitting")
+    logging.debug("Switching over to teams calender")
+    joinClass()
+    time.sleep(5)
+    logging.debug("Quitting")
     # driver.quit()

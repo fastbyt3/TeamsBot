@@ -59,4 +59,10 @@ export PATH="$PATH:/path/to/chromedriver"
 - and update the path in the _.config.json_ (refer the sample file)
 
 
+### Executing the program
+
+```bash
+python ./src/teamsbot.py
+```
+
 ---

@@ -30,7 +30,7 @@ def parseCreds():
 
 def login():
     driver.get(URL)
-    time.sleep(5)
+    time.sleep(3)
     logging.debug("Loaded site... attempt log in....")
     # Input : email
     element = driver.find_element_by_name("loginfmt")
@@ -40,13 +40,18 @@ def login():
     logging.debug("Passed username page ✔")
 
     # Input: password
-    time.sleep(5)
+    time.sleep(3)
     element = driver.find_element_by_name("passwd")
     element.send_keys(password)
     element = driver.find_element_by_id("idSIButton9")
     element.click()
     logging.debug("Password page passed ✔✔")
 
+    # "Stay signed in" page
+    time.sleep(5)
+    element = driver.find_element_by_id("idSIButton9")
+    element.click()
+    logging.debug("Stay signed in - YES ✔")
 
 
 if __name__ == "__main__":
@@ -57,5 +62,5 @@ if __name__ == "__main__":
     time.sleep(5)
     logging.debug("Log in successful")
     time.sleep(10)
-    logging.debug("Quitting")
-    driver.quit()
+    # logging.debug("Quitting")
+    # driver.quit()

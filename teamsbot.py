@@ -8,7 +8,7 @@ import time
 
 
 url = "https://teams.microsoft.com"
-login_cred = {'email' : '312319104006@stjosepshs.onmicrosoft.com', 'pass' : 'Shaunis@sh33p'}
+login_cred = {'email' : '', 'pass' : ''}
 driver = None
 
 def login() :

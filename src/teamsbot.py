@@ -20,14 +20,14 @@ def parseCreds():
 
 def login(email, password) :
     global driver
-    email = driver.find_element_by_xpath("//form[@id='i0116']")
-    email.click()
-    email.send_keys(email)
+    sendEmail = driver.find_element_by_xpath("//form[@id='i0116']")
+    sendEmail.click()
+    sendEmail.send_keys(email)
     driver.find_element_by_xpath("//form[@id='idSIButton9']").click()
     time.sleep(10)
-    password = driver.find_element_by_xpath("//form[@id='i0118']")
-    password.click()
-    password.send_keys(password)
+    sendPassword = driver.find_element_by_xpath("//form[@id='i0118']")
+    sendPassword.click()
+    sendPassword.send_keys(password)
     driver.find_element_by_xpath("//form[@id='idSIButton9']").click()
     time.sleep(10)
 

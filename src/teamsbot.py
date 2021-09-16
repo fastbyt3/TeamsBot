@@ -54,8 +54,14 @@ def login():
     logging.debug("Stay signed in - YES ✔")
 
 def joinClass():
-    driver.get("https://teams.microsoft.com/_#/calendarv2")
-
+    # Jumps to Calender which shows all classes scheduled for that week
+    # driver.get("https://teams.microsoft.com/_#/calendarv2")
+    # allTeams = driver.find_element
+    # print(allTeams)
+    # ids = driver.find_elements_by_xpath('//*[@id]')
+    # for i in ids:
+    #     print(i)
+    pass
 
 if __name__ == "__main__":
     parseCreds()

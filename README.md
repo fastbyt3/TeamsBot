@@ -14,10 +14,10 @@
 pip3 install -r requirements.txt
 ```
 
-### Configure
+### Configure credentials
 
-- The creds for the teams account will be stored in _.creds.json_ file
-- Create a _.creds.json_ file in project's root dir
+- The creds for the teams account will be stored in _.config.json_ file
+- Create a _.config.json_ file in project's root dir
 - Store your creds in the following format:
 
 ```json
@@ -28,5 +28,18 @@ pip3 install -r requirements.txt
 ```
 
 - If you were to modify it in your own repo don't worry cos the _.creds.json_ file is in the _.gitignore_ so it won't get pushed to the repo
+
+### Setting up the WebDriver
+
+#### For Windows
+
+- Included `chromedriver.exe` in `./src` folder which is for _chrome v93_
+- All you have to do is:
+  - Check if your chrome version is 93 else download a new driver
+  - update the chromedriver path in `.config.json` (refer the sample file)
+
+    ```json
+    "chromedriver": "your path"
+    ```
 
 ---

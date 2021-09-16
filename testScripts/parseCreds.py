@@ -1,5 +1,5 @@
 import json
-with open(".creds.json") as f:
+with open(".config.json") as f:
     jsonObj = json.load(f)
 
 # print(jsonObj)

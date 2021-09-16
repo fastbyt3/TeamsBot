@@ -129,4 +129,4 @@ dmypy.json
 .pyre/
 
 # Secrets/creds
-.creds.json
+.config.json

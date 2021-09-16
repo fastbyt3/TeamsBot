@@ -9,6 +9,8 @@ import logging
 
 URL = "https://teams.microsoft.com"
 
+logging.basicConfig(filename='testing.log', encoding='utf-8', level=logging.DEBUG, format='%(asctime)s %(message)s')
+
 # Initialize driver
 
 def initDriver():
@@ -20,32 +22,40 @@ def initDriver():
 def parseCreds():
     with open('.config.json') as f:
         jsonObj = json.load(f)
+    global email, password
     email = jsonObj['email']
     password = jsonObj['password']
     global execPath
     execPath = jsonObj['chromedriver']
-    return email, password
 
-def login(email, password):
-    initDriver()
+def login():
     driver.get(URL)
     time.sleep(5)
-    sendEmail = driver.find_element_by_xpath("//form[@id='i0116']")
-    sendEmail.click()
-    sendEmail.send_keys(email)
-    driver.find_element_by_xpath("//form[@id='idSIButton9']").click()
-    time.sleep(10)
-    sendPassword = driver.find_element_by_xpath("//form[@id='i0118']")
-    sendPassword.click()
-    sendPassword.send_keys(password)
-    driver.find_element_by_xpath("//form[@id='idSIButton9']").click()
-    time.sleep(10)
+    logging.debug("Loaded site... attempt log in....")
+    # Input : email
+    element = driver.find_element_by_name("loginfmt")
+    element.send_keys(email)
+    element = driver.find_element_by_id("idSIButton9")
+    element.click()
+    logging.debug("Passed username page ✔")
+
+    # Input: password
+    time.sleep(5)
+    element = driver.find_element_by_name("passwd")
+    element.send_keys(password)
+    element = driver.find_element_by_id("idSIButton9")
+    element.click()
+    logging.debug("Password page passed ✔✔")
+
+
 
 if __name__ == "__main__":
-    email, password = parseCreds()
-    logging.warning(f"Attempting login with creds: {email} - {password}")
-    login(email, password)
+    parseCreds()
+    logging.debug(f"Attempting login with creds: {email} - {password}")
+    initDriver()
+    login()
+    time.sleep(5)
+    logging.debug("Log in successful")
     time.sleep(10)
-    logging.warning("Log in successful")
-    print("Quitting.....")
+    logging.debug("Quitting")
     driver.quit()

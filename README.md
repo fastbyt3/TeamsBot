@@ -33,13 +33,16 @@ pip3 install -r requirements.txt
 
 #### For Windows
 
+- this was tested on **Chrome v93**
 - Included `chromedriver.exe` in `./src` folder which is for _chrome v93_
 - All you have to do is:
-  - Check if your chrome version is 93 else download a new driver
+  - Check if your chrome version is 93 else download a new driver for your version of Chrome(ium)
   - update the chromedriver path in `.config.json` (refer the sample file)
 
     ```json
     "chromedriver": "your path"
     ```
+
+- In case of using **Firefox** you can try using _GeckoDriver_ (not tested)
 
 ---

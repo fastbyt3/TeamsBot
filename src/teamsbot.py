@@ -1,6 +1,8 @@
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
+from selenium import webdriver
+# from selenium.webdriver import Chrome
 import time
 import json
 
@@ -8,7 +10,8 @@ import json
 
 
 url = "https://teams.microsoft.com"
-driver = None
+driver = webdriver.Chrome()
+# driver = Chrome()
 
 def parseCreds():
     with open('.creds.json') as f:
@@ -34,4 +37,6 @@ def login(email, password) :
 
 
 email, password = parseCreds()
+driver.get(url)
+time.sleep(10)
 login(email, password)
